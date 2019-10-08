@@ -61,7 +61,7 @@ let toastr:Toastr = window['toastr'];
     CreateSessionComponent,
     AuthService,
     {provide : 'canDeactivateCreateEvent',
-     useValue: checkDirtyState,,,,
+     useValue: checkDirtyState
     }
   
   ],
