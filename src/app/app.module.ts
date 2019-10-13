@@ -2,20 +2,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, ActivatedRouteSnapshot} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import { HttpClientModule } from '@angular/common/http';
 import {
-  EventListComponent ,
+  EventsListComponent ,
   EventThumbnailComponent ,
   EventService ,
   EventDetailsComponent ,
   CreateEventComponent ,
-  EventRouteActivator,
+
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
   UpvoteComponent,
   VoterService,
   LocationValidator,
-  DurationPipe
+  DurationPipe,
+  EventResolver
 } from './events/index'
 
 import {
@@ -44,7 +46,7 @@ let jQuery = window['$'];
 @NgModule({
   declarations: [
     EventsAppComponent,
-    EventListComponent,
+    EventsListComponent,
     EventThumbnailComponent,
     EventDetailsComponent,
     NavBarComponent,
@@ -65,14 +67,15 @@ let jQuery = window['$'];
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
 
   providers: [
     EventService,
     {provide: TOASTR_TOKEN, useValue: toastr },
     {provide: JQ_TOKEN, useValue: jQuery },
-    EventRouteActivator,
+    EventResolver,
     EventListResolver,
     CreateSessionComponent,
     VoterService,
@@ -91,3 +94,4 @@ export function checkDirtyState(component:CreateEventComponent) {
   return window.confirm('you have not save this event, do you really want to cancle ?')
   return true
 }
+
