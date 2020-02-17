@@ -13,11 +13,15 @@ import {
   EventListResolver,
   CreateSessionComponent,
   SessionListComponent,
+<<<<<<< HEAD
   UpvoteComponent,
   VoterService,
   LocationValidator,
   DurationPipe,
   EventResolver
+=======
+  DurationPipe
+>>>>>>> parent of 734c0a7... latest updated file
 } from './events/index'
 
 import {
@@ -57,8 +61,6 @@ let jQuery = window['$'];
     collapsibleWellComponent,
     SimpleModalComponent,
     ModalTriggerDirective,
-    UpvoteComponent,
-    LocationValidator,
     DurationPipe,
 
   ],
@@ -78,7 +80,6 @@ let jQuery = window['$'];
     EventResolver,
     EventListResolver,
     CreateSessionComponent,
-    VoterService,
     AuthService,
     {provide : 'canDeactivateCreateEvent',
      useValue: checkDirtyState
